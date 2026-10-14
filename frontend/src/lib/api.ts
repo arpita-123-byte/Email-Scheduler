@@ -10,7 +10,11 @@ import type {
   User,
 } from './types';
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
+// In production, use same-origin URLs so Vercel can route /api/* to the backend.
+// For local development, default to the Express server on port 4000.
+export const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ??
+  (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:4000');
 
 export class ApiError extends Error {
   constructor(
@@ -31,7 +35,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
       headers: { 'Content-Type': 'application/json', ...init.headers },
     });
   } catch {
-    throw new ApiError(0, `Can't reach the server at ${API_URL}. Is the backend running?`);
+    throw new ApiError(0, `Can't reach the server${API_URL ? ` at ${API_URL}` : ''}. Is the backend running?`);
   }
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
