@@ -1,0 +1,13 @@
+name,email,company
+Priya Sharma,priya.sharma@example.com,Acme Retail
+Rahul Mehta,rahul.mehta@example.com,FinEdge
+Sara Khan,sara.khan@example.com,BrightLabs
+Dev Patel,dev.patel@example.com,CloudNest
+Neha Gupta,neha.gupta@example.com,UrbanFit
+Arjun Rao,arjun.rao@example.com,Paystack Dev
+Meera Iyer,meera.iyer@example.com,Leaf Health
+Kabir Singh,kabir.singh@example.com,Northwind
+Ananya Das,ananya.das@example.com,PixelForge
+Vikram Nair,vikram.nair@example.com,ShipFast
+Priya Sharma (duplicate),PRIYA.SHARMA@example.com,Acme Retail
+Broken row,not-an-email,Nowhere
