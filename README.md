@@ -1,4 +1,4 @@
-# Outbox Email Scheduler
+#Email Scheduler
 
 A production-style email job scheduler with a dashboard. You upload a list of leads, write one email, pick a start time, a delay between emails and an hourly limit. The backend persists everything in PostgreSQL and schedules one BullMQ delayed job per email (no cron). It enforces per-sender spacing and three hourly limits atomically in Redis, then sends through Ethereal SMTP. It survives restarts, Redis data loss and crashed workers without losing or duplicating an email.
 
